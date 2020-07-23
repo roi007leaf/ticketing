@@ -9,6 +9,7 @@ import { signupRouter } from "./routes/signup";
 import { signoutRouter } from "./routes/signout";
 import { errorHandler } from "./middlewares/error-handler";
 import NotFoundError from "./errors/not-found-error";
+import DatabaseConnectionError from "./errors/database-connection-error";
 
 const app = express();
 app.use(json());
@@ -30,7 +31,7 @@ const start = async () => {
     });
     console.log("Connected To MongoDB");
   } catch (e) {
-    console.error(e);
+    // throw new DatabaseConnectionError();
   }
   app.listen(3000, () => {
     console.log("Listening on port 3000!!!!!!!!");

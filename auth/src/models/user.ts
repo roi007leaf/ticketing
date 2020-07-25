@@ -1,21 +1,22 @@
 import mongoose from "mongoose";
-import Password from "../tools/password";
+import { Password } from "../tools/password";
+
 // An interface that describes the properties
-// that are required to create a new user
-interface IUserAttrs {
+// that are requried to create a new User
+interface UserAttrs {
   email: string;
   password: string;
 }
 
 // An interface that describes the properties
-// that UserModel has
-interface IUserModel extends mongoose.Model<IUserDoc> {
-  build(attrs: IUserAttrs): IUserDoc;
+// that a User Model has
+interface UserModel extends mongoose.Model<UserDoc> {
+  build(attrs: UserAttrs): UserDoc;
 }
 
 // An interface that describes the properties
-// that a single user document has
-interface IUserDoc extends mongoose.Document {
+// that a User Document has
+interface UserDoc extends mongoose.Document {
   email: string;
   password: string;
 }
@@ -45,16 +46,16 @@ const userSchema = new mongoose.Schema(
 
 userSchema.pre("save", async function (done) {
   if (this.isModified("password")) {
-    const hashedPassword = await Password.toHash(this.get("password"));
-    this.set("password", hashedPassword);
+    const hashed = await Password.toHash(this.get("password"));
+    this.set("password", hashed);
   }
   done();
 });
 
-userSchema.statics.build = (attrs: IUserAttrs) => {
+userSchema.statics.build = (attrs: UserAttrs) => {
   return new User(attrs);
 };
 
-const User = mongoose.model<IUserDoc, IUserModel>("User", userSchema);
+const User = mongoose.model<UserDoc, UserModel>("User", userSchema);
 
-export default User;
+export { User };

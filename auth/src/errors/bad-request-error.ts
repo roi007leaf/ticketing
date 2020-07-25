@@ -1,6 +1,6 @@
-import CustomError from "./custom-error";
+import { CustomError } from "./custom-error";
 
-export default class BadRequestError extends CustomError {
+export class BadRequestError extends CustomError {
   statusCode = 400;
 
   constructor(public message: string) {
@@ -9,7 +9,7 @@ export default class BadRequestError extends CustomError {
     Object.setPrototypeOf(this, BadRequestError.prototype);
   }
 
-  serializeErrors(): { message: string; field?: string }[] {
+  serializeErrors() {
     return [{ message: this.message }];
   }
 }

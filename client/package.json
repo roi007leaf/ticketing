@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next"
   },
   "keywords": [],
@@ -12,8 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "bootstrap": "^4.5.0",
-    "next": "^9.4.4",
+    "bootstrap": "^4.4.1",
+    "next": "^9.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }

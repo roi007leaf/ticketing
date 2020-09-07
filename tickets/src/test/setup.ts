@@ -6,6 +6,7 @@ declare global {
   namespace NodeJS {
     interface Global {
       signin(): string[];
+      generateObjectId(): string;
     }
   }
 }
@@ -58,4 +59,8 @@ global.signin = () => {
 
   // return a string thats the cookie with the encoded data
   return [`express:sess=${base64}`];
+};
+
+global.generateObjectId = () => {
+  return mongoose.Types.ObjectId().toHexString();
 };

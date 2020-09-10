@@ -1,8 +1,7 @@
-import { NotAuthorizedError, NotFoundError, requireAuth } from '@rhorg/common';
+import { NotAuthorizedError, NotFoundError, requireAuth, validateRequest } from '@rhorg/common';
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 
-import { validateRequest } from '../../../common/src/middlewares/validate-request';
 import { Ticket } from '../models/ticket';
 
 const router = express.Router();

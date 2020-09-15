@@ -1,10 +1,12 @@
 import nats, { Message, Stan, SubscriptionOptions } from 'node-nats-streaming';
 
-abstract class Listener {
+import Event from './event';
+
+abstract class Listener<T extends Event> {
   private client: Stan;
-  abstract subject: string;
+  abstract subject: T['subject'];
   abstract queueGroupName: string;
-  abstract onMessage(parsedData: any, msg: Message): void;
+  abstract onMessage(data: T['data'], msg: Message): void;
   protected ackWait = 5 * 1000;
 
   constructor(client: Stan) {

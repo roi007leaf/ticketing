@@ -1,7 +1,7 @@
 import { randomBytes } from 'crypto';
 import nats from 'node-nats-streaming';
 
-import TicketCreatedPublisher from './events/ticket-created-publisher';
+import TicketCreatedPublisher from '../../tickets/src/events/publishers/ticket-created-publisher';
 
 console.clear();
 

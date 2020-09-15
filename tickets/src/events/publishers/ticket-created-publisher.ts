@@ -1,6 +1,4 @@
-import Publisher from './base-publisher';
-import Subjects from './subjects';
-import TicketCreatedEvent from './ticket-created-event';
+import { Publisher, Subjects, TicketCreatedEvent } from '@rhorg/common';
 
 class TicketCreatedPublisher extends Publisher<TicketCreatedEvent> {
   // possible to set as readonly without setting the type

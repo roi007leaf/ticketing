@@ -1,8 +1,8 @@
 import { Message } from 'node-nats-streaming';
 
-import Listener from '../../../common/src/events/base-listener';
-import Subjects from './subjects';
-import TicketCreatedEvent from './ticket-created-event';
+import { Listener } from '../../../common/src/events/base-listener';
+import { Subjects } from './subjects';
+import { TicketCreatedEvent } from './ticket-created-event';
 
 class TicketCreatedListener extends Listener<TicketCreatedEvent> {
   // possible to set as readonly without setting the type

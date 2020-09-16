@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@rhorg/common": "^1.0.13",
+    "@rhorg/common": "^1.0.14",
     "@types/cookie-session": "^2.0.41",
     "@types/crypto-js": "^3.1.47",
     "@types/express": "^4.17.7",

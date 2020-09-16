@@ -2,7 +2,6 @@ import { requireAuth, validateRequest } from '@rhorg/common';
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 
-import { TicketCreatedPublisher } from '../events/publishers/ticket-created-publisher';
 import { Ticket } from '../models/ticket';
 
 const router = express.Router();
@@ -20,12 +19,12 @@ router.post(
     const ticket = Ticket.build({ title, price, userId: req.currentUser!.id });
     await ticket.save();
 
-    new TicketCreatedPublisher(client).publish({
-      id: ticket.id,
-      title: ticket.title,
-      price: ticket.price,
-      userId: ticket.userId,
-    });
+    // new TicketCreatedPublisher(client).publish({
+    //   id: ticket.id,
+    //   title: ticket.title,
+    //   price: ticket.price,
+    //   userId: ticket.userId,
+    // });
 
     res.status(201).send(ticket);
   }

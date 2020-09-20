@@ -1,6 +1,8 @@
 import { OrderStatus } from '@rhorg/common';
 import mongoose from 'mongoose';
 
+import { TicketDoc } from './ticket';
+
 interface OrderAttrs {
   status: OrderStatus;
   expiresAt: Date;

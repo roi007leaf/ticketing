@@ -4,16 +4,16 @@ import mongoose from 'mongoose';
 import { TicketDoc } from './ticket';
 
 interface OrderAttrs {
+  userId: string;
   status: OrderStatus;
   expiresAt: Date;
-  userId: string;
   ticket: TicketDoc;
 }
 
 interface OrderDoc extends mongoose.Document {
+  userId: string;
   status: OrderStatus;
   expiresAt: Date;
-  userId: string;
   ticket: TicketDoc;
 }
 

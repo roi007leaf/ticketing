@@ -37,12 +37,10 @@ const orderSchema = new mongoose.Schema(
     },
     expiresAt: {
       type: mongoose.Schema.Types.Date,
-      reuired: true,
     },
     ticket: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Ticket',
-      required: true,
     },
   },
   {

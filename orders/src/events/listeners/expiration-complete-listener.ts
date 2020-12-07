@@ -30,7 +30,9 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
     await new OrderCancelledPublisher(natsWrapper.client).publish({
       id: order.id,
       version: order.version,
-      ticket: order.ticket.id,
+      ticket: {
+        id: order.ticket.id
+      },
     });
 
     msg.ack();

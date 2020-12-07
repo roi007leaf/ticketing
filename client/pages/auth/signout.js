@@ -8,7 +8,7 @@ const signout = () => {
     url: '/api/users/signout',
     method: 'post',
     body: {},
-    onSuccess: () => Router.push('/'),
+    onSuccess: () => Router.push('/')
   });
 
   useEffect(() => {
